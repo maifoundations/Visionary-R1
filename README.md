@@ -8,9 +8,8 @@
 This is the official implementation of the paper 'Visionary-R1: Mitigating Shortcuts in Visual Reasoning with Reinforcement Learning'.
 
 # News📰
-* **`[2025/05/20]`:**🔥**We have released our paper [[Arxiv](https://arxiv.org/pdf/2505.14677)].**
 * **`[2025/06/03]`:**🔥**Model checkpoints are available at [[🤗HuggingFace](https://huggingface.co/maifoundations/Visionary-R1)].**
-***We will release our code soon.***
+* **`[2025/05/20]`:**🔥**We have released our paper [[Arxiv](https://arxiv.org/pdf/2505.14677)].**
 
 # Overview✈️
 We reveal a critical limitation of GRPO when applied to visual language models (VLMs)—the tendency to develop shortcut learning. This finding highlights the need for better training techniques to ensure robust reasoning capabilities. To address the shortcut learning problem, we propose Visionary-R1.
