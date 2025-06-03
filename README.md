@@ -2,14 +2,14 @@
 <p align="center"><i>A new RL method for visual reasoning, which significantly outperforms vanilla GRPO, and bypasses the need for explicit chain-of-thought supervision during training.</i></p>
 
 <p align="center">
-          🤗 <a href="maifoundations/Visionary-R1">Hugging Face</a>&nbsp&nbsp | &nbsp&nbsp 📑 <a href="https://arxiv.org/pdf/2505.14677">Paper</a> &nbsp&nbsp | &nbsp&nbsp 📖 <a href="https://www.maifoundations.com/blog/visionary-r1/">Blog</a> &nbsp&nbsp 
+          🤗 <a href="https://huggingface.co/maifoundations/Visionary-R1">Hugging Face</a>&nbsp&nbsp | &nbsp&nbsp 📑 <a href="https://arxiv.org/pdf/2505.14677">Paper</a> &nbsp&nbsp | &nbsp&nbsp 📖 <a href="https://www.maifoundations.com/blog/visionary-r1/">Blog</a> &nbsp&nbsp 
 </p>
 
 This is the official implementation of the paper 'Visionary-R1: Mitigating Shortcuts in Visual Reasoning with Reinforcement Learning'.
 
 # News📰
 * **`[2025/05/20]`:**🔥**We have released our paper [[Arxiv](https://arxiv.org/pdf/2505.14677)].**
-* **`[2025/06/03]`:**🔥**Model checkpoints are available at [[🤗HuggingFace](maifoundations/Visionary-R1)].**
+* **`[2025/06/03]`:**🔥**Model checkpoints are available at [[🤗HuggingFace](https://huggingface.co/maifoundations/Visionary-R1)].**
 ***We will release our code soon.***
 
 # Overview✈️
