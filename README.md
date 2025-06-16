@@ -59,6 +59,65 @@ To further ensure that the captions are meaningful and informative, we apply aux
 | Visionary-R1            |  3B  |    RL    |  QA  |    69.4   |    24.7    |  66.5  |   84.1  |
 
 
+# Set up 📐
+## Environment
+```
+git clone git@github.com:maifoundations/Visionary-R1.git
+cd Visionary-R1
+
+# build environment
+conda create -n visionary-r1 python=3.12
+conda activate visionary-r1
+
+pip install -e ".[all]"
+```
+
+## Data Preparation
+To prepare the training data, the data format should be organized into the following format.
+```
+{
+          "solution": f"<answer> Yes </answer>",
+          "prompt": [
+            {"role": "system", "content": [{"type": "text", "text": SYSTEM_PROMPT}]},
+            {
+                "role": "user",
+                "content": [
+                    {"type": "image"},
+                    {"type": "text", "text": "Is the value of Favorable 38 in 2015?"},
+                ],
+            },
+          ],
+          "problem_type": 'numerical'
+    }
+```
+## Training
+To run Visionary-R1 with Qwen2.5-VL-3B:
+```
+torchrun --nproc_per_node="${ARNOLD_WORKER_GPU}" \
+    --nnodes="${ARNOLD_WORKER_NUM}" \
+    --node_rank="${ARNOLD_ID}" \
+    --master_addr="${METIS_WORKER_0_HOST}" \
+    --master_port="${port_in_cmd}" \
+    src/open_r1/grpo_vllm_caption.py \
+    --deepspeed scripts/zero3.json \
+    --output_dir checkpoints/Visionary-R1 \
+    --model_name_or_path Qwen/Qwen2.5-VL-3B-Instruct \
+    --dataset_name ${YOUR_DATA_PATH} \
+    --max_prompt_length 4096 \
+    --per_device_train_batch_size 1 \
+    --gradient_accumulation_steps 8 \
+    --logging_steps 1 \
+    --learning_rate 5e-7 \
+    --beta 0.04 \
+    --bf16 \
+    --report_to wandb \
+    --gradient_checkpointing true \
+    --attn_implementation flash_attention_2 \
+    --max_pixels 2359296 \
+    --save_total_limit 1 \
+    --num_train_epochs 1 \
+    --run_name Visionary-R1
+```
 # Citation🎓
 ```
 @article{xia2025visionary,
