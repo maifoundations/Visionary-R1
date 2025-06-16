@@ -29,7 +29,7 @@ if stale_egg_info.exists():
 _deps = [
     # Core ML frameworks
     "torch==2.6.0",
-    "transformers==4.49.0",
+    "transformers>=4.49.0",
     "einops>=0.8.0",
     
     # Model training and inference
@@ -41,21 +41,17 @@ _deps = [
     
     # HuggingFace ecosystem
     "huggingface-hub>=0.30.1",
-    "datasets>=2.16.1",
     "tokenizers>=0.21.1",
     
     # Scientific computing
     "numpy>=1.26.4",
-    "scipy>=1.15.2",
     "pandas>=2.2.3",
     
     # Computer vision
     "opencv-python-headless>=4.11.0.86",
-    "pillow>=11.1.0",
     "torchvision==0.21.0",
     
     # Evaluation
-    "lmms-eval==0.3.0",
     "evaluate>=0.4.3",
     "math-verify>=0.7.0",
     
@@ -72,12 +68,10 @@ def deps_list(*pkgs):
 
 
 extras = {}
-extras["tests"] = deps_list("pytest")
 extras["torch"] = deps_list("torch", "torchvision")
-extras["eval"] = deps_list("lmms-eval", "evaluate", "math-verify")
-extras["vision"] = deps_list("opencv-python-headless", "pillow", "torchvision")
+extras["eval"] = deps_list("evaluate", "math-verify")
+extras["vision"] = deps_list("opencv-python-headless", "torchvision")
 extras["monitoring"] = deps_list("wandb", "loguru")
-extras["dev"] = extras["quality"] + extras["tests"] + extras["eval"]
 extras["all"] = list(deps.values())
 
 # core dependencies shared across the whole project - keep this to a bare minimum :)
@@ -86,7 +80,6 @@ install_requires = [
     deps["transformers"],
     deps["vllm"],
     deps["einops"],
-    deps["datasets"],
     deps["deepspeed"],
 ]
 
