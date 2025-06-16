@@ -73,7 +73,7 @@ pip install -e ".[all]"
 ```
 
 ## Data Preparation
-To prepare the training data, the data format should be organized into the following format.
+To organize the training data effectively, it should be structured in the following format.
 ```
 {
           "solution": f"<answer> Yes </answer>",
