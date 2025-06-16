@@ -8,6 +8,7 @@
 This is the official implementation of the paper 'Visionary-R1: Mitigating Shortcuts in Visual Reasoning with Reinforcement Learning'.
 
 # News📰
+* **`[2025/06/16]`:**🔥**We have released our code.**
 * **`[2025/06/03]`:**🔥**Model checkpoints are available at [[🤗HuggingFace](https://huggingface.co/maifoundations/Visionary-R1)].**
 * **`[2025/05/20]`:**🔥**We have released our paper [[Arxiv](https://arxiv.org/pdf/2505.14677)].**
 
@@ -67,3 +68,6 @@ To further ensure that the captions are meaningful and informative, we apply aux
   year={2025}
 }
 ```
+# Acknowledgment
+We learned the design and reused code from the following projects: [[MM-EUREKA](https://github.com/ModalMinds/MM-EUREKA)], [[R1-V](https://github.com/Deep-Agent/R1-V)], [[Video-R1](https://github.com/tulerfeng/Video-R1)].
+
