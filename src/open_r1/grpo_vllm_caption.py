@@ -62,6 +62,14 @@ class GRPOScriptArguments(ScriptArguments):
         default=3136,
         metadata={"help": "Minimum number of pixels for the image"},
     )
+    caption_reward: Optional[bool] = field(
+        default=True,
+        metadata={"help": "Whether to use caption reward or not"},
+    )
+    caption_reward_weight: Optional[float] = field(
+        default=0.1,
+        metadata={"help": "Weight for the caption reward"},
+    )
 
 
 # This function is partially borrowed from Video-R1[https://github.com/tulerfeng/Video-R1]
@@ -238,6 +246,8 @@ def main(script_args, training_args, model_args):
         attn_implementation=model_args.attn_implementation,
         max_pixels=script_args.max_pixels,
         min_pixels=script_args.min_pixels,
+        caption_reward=script_args.caption_reward,
+        caption_reward_weight=script_args.caption_reward_weight,
     )
 
     trainer.train()

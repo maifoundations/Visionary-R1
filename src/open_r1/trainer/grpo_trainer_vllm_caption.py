@@ -228,6 +228,8 @@ class Qwen2VLGRPOTrainerCap(Trainer):
             max_pixels: Optional[int] = 12845056,
             min_pixels: Optional[int] = 3136,
             attn_implementation: str = "flash_attention_2",
+            caption_reward: bool = False,
+            caption_reward_weight: float = 0.1,
     ):
         # Args
         if args is None:
@@ -369,8 +371,8 @@ class Qwen2VLGRPOTrainerCap(Trainer):
         self.num_generations = args.num_generations  # = G in the GRPO paper, 8
 
         self.beta = args.beta
-        self.caption_reward = args.caption_reward
-        self.caption_reward_weight = args.caption_reward_weight
+        self.caption_reward = caption_reward
+        self.caption_reward_weight = caption_reward_weight
 
         # The trainer estimates the number of FLOPs (floating-point operations) using the number of elements in the
         # input tensor associated with the key "input_ids". However, in GRPO, the sampled data does not include the
