@@ -727,7 +727,7 @@ class Qwen2VLGRPOTrainerCap(Trainer):
                     message = [
                         {"role": "system", "content": SYSTEM_PROMPT},
                         {"role": "user",
-                         "content": f"Input Format:\nText:{info}\nQuestion:{question}"}
+                         "content": f"Input Format:\nText:{cap}\nQuestion:{question}"}
                     ]
 
                     prompt = self.processing_class.apply_chat_template(
